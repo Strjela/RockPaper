@@ -5,9 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="syles.css">
     <script src="./game.js"></script> 
 </head>
 <body>
-    
+    <h1 id="header">ROCK PAPER SCISSORS</h1>
+    <div class="content">
+        <div class="main">
+            <h2 id="infoOne">Choose your weapon!</h2>
+            <div id="infoTwo">First to score 5 points wins the game</div>
+        </div>
+        <div class="scoreContainer">
+            <div class="scoreBox">
+                <div class="sing" id="playerSing">❔</div>
+                <p class="score" id="playerScore">Player: 0</p>
+            </div>
+
+            <div class="scoreBox">
+                <div class="sing" id="compSing">❔</div>
+                <p class="score" id="compScore">Computer: 0</p>
+            </div>
+            </div>
+            <div class="choices">
+                <button class="butt" id="rockChoice"></button>
+                <button class="butt" id="paperChoice"></button>
+                <button class="butt" id="scissorsChoice"></button>
+            </div>
+            </div>
 </body>
 </html>
