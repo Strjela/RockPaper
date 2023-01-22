@@ -87,6 +87,11 @@ const compSing = document.querySelector("#compSing");
 const pScore = document.querySelector("#playerScore");
 const cScore = document.querySelector("#compScore");
 
+const overlay = document.querySelector("#overlay");
+const endGameWon = document.querySelector("#endGameWon");
+const endGameLost = document.querySelector("#endGameLost");
+const closeGame = document.querySelector("#closeGame");
+
 const izbor = document.querySelectorAll(".butt");
 
 izbor.forEach((choice) => choice.addEventListener("click", play));
@@ -119,9 +124,13 @@ function a(winner) {
 
 // FUNKCIJA ZA OGRANICAVANJE NA 5 POBJEDNICKIH RUNDI
 function d(playerScore, computerScore) {
-  if (playerScore === 2) {
+  if (playerScore === 5) {
+    endGameWon.classList.add("open");
+    overlay.classList.add("open");
     console.log("kraj igre");
-  } else if (computerScore === 2) {
+  } else if (computerScore === 5) {
+    endGameWon.classList.add("open");
+    overlay.classList.add("open");
     console.log("kraj igre2");
   }
 }
@@ -148,7 +157,16 @@ function c(computerSelection) {
   }
 }
 
+closeGame.addEventListener("click", () => {
+  location.reload();
+});
 
+overlay.addEventListener("click", (e) => {
+  e.preventDefault();
+  endGameWon.classList.remove("open");
+  endGameLost.classList.remove("open");
+  overlay.classList.remove("open");
+});
 
 
 
