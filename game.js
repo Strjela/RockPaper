@@ -9,23 +9,65 @@ function playRound(playerSelection, computerSelection) {
   computerSelection = computerSelection.toLocaleLowerCase();
 
   if (playerSelection === computerSelection) {
+    infoOne.textContent = "It's tie!";
+    infoTwo.textContent = `${
+      playerSelection[0].toUpperCase() + playerSelection.substring(1)
+    } ties with ${
+      computerSelection[0].toUpperCase() + computerSelection.substring(1)
+    }`;
     return "Game is tie, try again";
   } else if (playerSelection === "rock") {
     if (computerSelection === "scissors") {
+      infoOne.textContent = "You won!";
+      infoTwo.textContent = `${
+        playerSelection[0].toUpperCase() + playerSelection.substring(1)
+      } beats ${
+        computerSelection[0].toUpperCase() + computerSelection.substring(1)
+      }`;
       return "You win, Rock beats Scissors!";
     } else {
+      infoOne.textContent = "You lost!";
+      infoTwo.textContent = `${
+        computerSelection[0].toUpperCase() + computerSelection.substring(1)
+      } beats ${
+        playerSelection[0].toUpperCase() + playerSelection.substring(1)
+      }`;
       return "You lose, Paper beats Rock!";
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "rock") {
+      infoOne.textContent = "You won!";
+      infoTwo.textContent = `${
+        playerSelection[0].toUpperCase() + playerSelection.substring(1)
+      } beats ${
+        computerSelection[0].toUpperCase() + computerSelection.substring(1)
+      }`;
       return "You win, Paper beats Rock!";
     } else {
+      infoOne.textContent = "You lost!";
+      infoTwo.textContent = `${
+        computerSelection[0].toUpperCase() + computerSelection.substring(1)
+      } beats ${
+        playerSelection[0].toUpperCase() + playerSelection.substring(1)
+      }`;
       return "You lose, Scissors beats Paper!";
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "paper") {
+      infoOne.textContent = "You won!";
+      infoTwo.textContent = `${
+        playerSelection[0].toUpperCase() + playerSelection.substring(1)
+      } beats ${
+        computerSelection[0].toUpperCase() + computerSelection.substring(1)
+      }`;
       return "You win, Scissors beats Paper!";
     } else {
+      infoOne.textContent = "You lost!";
+      infoTwo.textContent = `${
+        computerSelection[0].toUpperCase() + computerSelection.substring(1)
+      } beats ${
+        playerSelection[0].toUpperCase() + playerSelection.substring(1)
+      }`;
       return "You lose, Rock beats Scissors!";
     }
   } else {
@@ -33,35 +75,115 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
+const infoOne = document.querySelector("#infoOne");
+const infoTwo = document.querySelector("#infoTwo");
 
-  for (let i = 0; i < 5; i++) {
-    playerSelection = prompt("Let's play, choose Rock, Paper or Scissors");
-    computerSelection = getComputerChoice();
+const rockChoice = document.querySelector("#rockChoice");
+const paperChoice = document.querySelector("#paperChoice");
+const scissorsChoice = document.querySelector("#scissorsChoice");
 
-    let result = playRound(playerSelection, computerSelection);
-    console.log(result);
+const playerSing = document.querySelector("#playerSing");
+const compSing = document.querySelector("#compSing");
+const pScore = document.querySelector("#playerScore");
+const cScore = document.querySelector("#compScore");
 
-    if (result.startsWith("You win")) {
-      playerScore++;
-      console.log(`One point for player`);
-    } else if (result.startsWith("You lose")) {
-      computerScore++;
-      console.log("One point for Computer");
-    }
-  }
+const izbor = document.querySelectorAll(".butt");
 
-  if (playerScore > computerScore) {
-    console.log(`You won, final score is ${playerScore}:${computerScore}`);
-  } else if (playerScore < computerScore) {
-    console.log(
-      `You lose, final score is ${playerScore}:${computerScore}, PLAY AGAIN!`
-    );
-  } else {
-    console.log(`It's a tie! Score: ${playerScore}-${computerScore}`);
+izbor.forEach((choice) => choice.addEventListener("click", play));
+
+let playerScore = 0;
+let computerScore = 0;
+
+function play(e) {
+  playerSelection = e.currentTarget.id;
+  computerSelection = getComputerChoice();
+  const winner = playRound(playerSelection, computerSelection);
+  a(winner);
+  b(playerSelection);
+  c(computerSelection);
+  d(playerScore, computerScore);
+
+  console.log(winner);
+}
+
+//FUNKCIJA KOJA PRATI SCORE I MINJA REZULTAT NA STRANICI
+function a(winner) {
+  if (winner.startsWith("You win")) {
+    playerScore++;
+    pScore.textContent = `Player: ${playerScore}`;
+  } else if (winner.startsWith("You lose")) {
+    computerScore++;
+    cScore.textContent = `Player: ${computerScore}`;
   }
 }
+
+// FUNKCIJA ZA OGRANICAVANJE NA 5 POBJEDNICKIH RUNDI
+function d(playerScore, computerScore) {
+  if (playerScore === 2) {
+    console.log("kraj igre");
+  } else if (computerScore === 2) {
+    console.log("kraj igre2");
+  }
+}
+
+// FUKCIJA ZA MINJANJE SLIKE IGRACA
+function b(playerSelection) {
+  if (playerSelection === "Rock") {
+    playerSing.src = "./pictures/rockICON.png";
+  } else if (playerSelection === "Paper") {
+    playerSing.src = "./pictures/paperICON.png";
+  } else if (playerSelection === "Scissors") {
+    playerSing.src = "./pictures/scissorsICON.png";
+  }
+}
+
+//FUNCKIJA ZA MINJANJE SLIKE COMPUTERA
+function c(computerSelection) {
+  if (computerSelection === "Rock") {
+    compSing.src = "./pictures/rockICON.png";
+  } else if (computerSelection === "Paper") {
+    compSing.src = "./pictures/paperICON.png";
+  } else if (computerSelection === "Scissors") {
+    compSing.src = "./pictures/scissorsICON.png";
+  }
+}
+
+
+
+
+
+
+// LOGIKA ZA 5 RUNDI
+
+// function game() {
+//   let playerScore = 0;
+//   let computerScore = 0;
+
+//   for (let i = 0; i < 5; i++) {
+//     playerSelection = prompt("Let's play, choose Rock, Paper or Scissors");
+//     computerSelection = getComputerChoice();
+
+//     let result = playRound(playerSelection, computerSelection);
+//     console.log(result);
+
+//     if (result.startsWith("You win")) {
+//       playerScore++;
+//       console.log(`One point for player`);
+//     } else if (result.startsWith("You lose")) {
+//       computerScore++;
+//       console.log("One point for Computer");
+//     }
+//   }
+
+//   if (playerScore > computerScore) {
+//     console.log(`You won, final score is ${playerScore}:${computerScore}`);
+//   } else if (playerScore < computerScore) {
+//     console.log(
+//       `You lose, final score is ${playerScore}:${computerScore}, PLAY AGAIN!`
+//     );
+//   } else {
+//     console.log(`It's a tie! Score: ${playerScore}-${computerScore}`);
+//   }
+// }
 
 // game();

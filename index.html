@@ -4,35 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
     <title>Document</title>
     <link rel="stylesheet" href="syles.css">
-    <script src="./game.js"></script> 
+    <script src="./game.js" defer></script>
 </head>
 <body>
-    <h1 id="header">ROCK PAPER SCISSORS</h1>
+<div class="rainbow-text" style="text-align: center;">
+    <span class="block-line"><span><span style="color:#ff0000;">R</span><span style="color:#ff5e00;">o</span><span
+                style="color:#ffb700;">c</span><span style="color:#eeff00;">k&nbsp;</span></span><span><span
+                style="color:#95ff00;">P</span><span style="color:#3bff00;">a</span><span
+                style="color:#00ff22;">p</span><span style="color:#00ff7b;">e</span><span
+                style="color:#00ffd5;">r&nbsp;</span></span><span><span style="color:#00d0ff;">S</span><span
+                style="color:#0077ff;">c</span><span style="color:#001eff;">i</span><span
+                style="color:#4000ff;">s</span><span style="color:#9900ff;">s</span><span
+                style="color:#f200ff;">o</span><span style="color:#ff00b2;">r</span><span
+                style="color:#ff0059;">s</span></span></span>
+</div>
     <div class="content">
-        <div class="main">
+        <div class="mainInfo">
             <h2 id="infoOne">Choose your weapon!</h2>
-            <div id="infoTwo">First to score 5 points wins the game</div>
+            <div id="infoTwo">Best of 5 round wins the game!</div>
         </div>
         <div class="scoreContainer">
             <div class="scoreBox">
-                <div class="sing" id="playerSing">❔</div>
+                <div class="sing"><img id="playerSing" src="./pictures/—Pngtree—hand drawn cartoon question mark_4555045.png"
+                        alt="question mark"></div>
                 <p class="score" id="playerScore">Player: 0</p>
             </div>
 
             <div class="scoreBox">
-                <div class="sing" id="compSing">❔</div>
+                <div class="sing"><img id="compSing" src="./pictures/—Pngtree—hand drawn cartoon question mark_4555045.png"
+                        alt="question mark"></div>
                 <p class="score" id="compScore">Computer: 0</p>
             </div>
-            </div>
+        </div>
             <div class="choices">
-                <button class="butt" id="rockChoice">✋</button>
-                <button class="butt" id="paperChoice"></button>
-                <button class="butt" id="scissorsChoice"></button>
+                <button type="button" onclick="b()" class="butt" id="Rock"><img src="./pictures/rockICON.png" alt="Rock"></button>
+                <button type="button" onclick="b()" class="butt" id="Paper"><img src="./pictures/paperICON.png" alt="Paper"></button>
+                <button type="button" onclick="b()" class="butt" id="Scissors"><img src="./pictures/scissorsICON.png"
+                        alt="Scissors"></button>
             </div>
-            </div>
+    </div>
+    <div class="kraj">
+        <p>Copyright © 2023 Nikola Jelic</p>
+        <button id="myButton">click</button>
+    </div>
 </body>
 </html>
 
-<!-- <div class="sign">✋</div> -->

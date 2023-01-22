@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #222831;
+    display: flex;
+    flex-direction: column;
+
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+/* Header */
+
+
+.rainbow-text {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: #A3A3A3 1px 1px 1px;
+
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    background-color: #111720;
+}
+
+.rainbow-text .block-line>span {
+    display: inline-block;
+}
+
+
+
+.content {
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Comic Neue', cursive;
+}
+
+/* Main info */
+
+.mainInfo {
+    margin-top: 2rem;
+    color: rgb(235, 234, 225);
+}
+
+#infoOne {
+    font-size: 49px;
+    margin-bottom: 0.7rem;
+}
+
+#infoTwo {
+    font-weight: bold;
+    font-size: 29px;
+}
+
+
+/* Score part */
+
+.scoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3.5rem;
+}
+
+
+.scoreBox {
+    margin-right: 2.2rem;
+}
+
+.score {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Choices part */
+
+.butt {
+    background-color: #393e46;
+    margin-right: 2rem;
+
+    /* --c: #5a5441; */
+    /* the color */
+    --b: .4em;
+    /* border length*/
+    --d: 15px;
+    /* the cube depth */
+
+    --_s: calc(var(--d) + var(--b));
+    color: var(--c);
+    border: solid #0000;
+    border-width: var(--b) var(--b) var(--_s) var(--_s);
+    background:
+        conic-gradient(at left var(--d) bottom var(--d),
+            #0000 90deg, rgb(255 255 255 /0.3) 0 225deg, rgb(255 255 255 /0.6) 0) border-box,
+        conic-gradient(at left var(--_s) bottom var(--_s),
+            #0000 90deg, var(--c) 0) 0 100%/calc(100% - var(--b)) calc(100% - var(--b)) border-box;
+    transform: translate(calc(var(--d)/-1), var(--d));
+    clip-path:
+        polygon(var(--d) 0%,
+            var(--d) 0%,
+            100% 0%,
+            100% calc(100% - var(--d)),
+            100% calc(100% - var(--d)),
+            var(--d) calc(100% - var(--d)));
+    transition: 0.5s;
+
+}
+
+.butt:hover {
+    /* background-color: #4a4f57; */
+
+
+    transform: translate(0, 0);
+    clip-path:
+        polygon(0% var(--d),
+            var(--d) 0%,
+            100% 0%,
+            100% calc(100% - var(--d)),
+            calc(100% - var(--d)) 100%,
+            0% 100%);
+}
+
+.butt:active {
+    /* background-color: #5b5f68; */
+}
+
+.kraj {
+    margin-top: auto;
+    padding-bottom: 12px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Comic Neue', cursive;
+    font-size: x-large;
+    font-weight: bolder;
+
+    background-color: #111720;
+
+}
