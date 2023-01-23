@@ -129,7 +129,7 @@ function d(playerScore, computerScore) {
     overlay.classList.add("open");
     console.log("kraj igre");
   } else if (computerScore === 5) {
-    endGameWon.classList.add("open");
+    endGameLost.classList.add("open");
     overlay.classList.add("open");
     console.log("kraj igre2");
   }
