@@ -90,7 +90,8 @@ const cScore = document.querySelector("#compScore");
 const overlay = document.querySelector("#overlay");
 const endGameWon = document.querySelector("#endGameWon");
 const endGameLost = document.querySelector("#endGameLost");
-const closeGame = document.querySelector("#closeGame");
+const closeGame = document.querySelector(".closeGame");
+const closeGameLost = document.querySelector(".closeGameLost");
 
 const izbor = document.querySelectorAll(".butt");
 
@@ -124,11 +125,11 @@ function a(winner) {
 
 // FUNKCIJA ZA OGRANICAVANJE NA 5 POBJEDNICKIH RUNDI
 function d(playerScore, computerScore) {
-  if (playerScore === 5) {
+  if (playerScore === 3) {
     endGameWon.classList.add("open");
     overlay.classList.add("open");
     console.log("kraj igre");
-  } else if (computerScore === 5) {
+  } else if (computerScore === 3) {
     endGameLost.classList.add("open");
     overlay.classList.add("open");
     console.log("kraj igre2");
@@ -157,9 +158,24 @@ function c(computerSelection) {
   }
 }
 
-closeGame.addEventListener("click", () => {
-  location.reload();
-});
+function restartGame() {
+  playerScore = 0;
+  computerScore = 0;
+  infoOne.textContent = "Choose your weapon!";
+  infoTwo.textContent = "Best of 5 round wins the game!";
+  pScore.textContent = "Player: 0";
+  cScore.textContent = "Computer: 0";
+  playerSing.src =
+    "./pictures/—Pngtree—hand drawn cartoon question mark_4555045.png";
+  compSing.src =
+    "./pictures/—Pngtree—hand drawn cartoon question mark_4555045.png";
+  endGameWon.classList.remove("open");
+  endGameLost.classList.remove("open");
+  overlay.classList.remove("open");
+}
+
+closeGame.addEventListener("click", restartGame);
+closeGameLost.addEventListener("click", restartGame);
 
 overlay.addEventListener("click", (e) => {
   e.preventDefault();
