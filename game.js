@@ -125,11 +125,11 @@ function a(winner) {
 
 // FUNKCIJA ZA OGRANICAVANJE NA 5 POBJEDNICKIH RUNDI
 function d(playerScore, computerScore) {
-  if (playerScore === 3) {
+  if (playerScore === 5) {
     endGameWon.classList.add("open");
     overlay.classList.add("open");
     console.log("kraj igre");
-  } else if (computerScore === 3) {
+  } else if (computerScore === 5) {
     endGameLost.classList.add("open");
     overlay.classList.add("open");
     console.log("kraj igre2");
